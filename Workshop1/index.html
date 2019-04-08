@@ -39,6 +39,8 @@
             <button id="Disable" class="demo-button">Disable</button>
             <button id="Enable" class="demo-button">Enable</button> -->
             <button type="button" id="add_book" class="k-button k-primary btn-add-book">新增書籍</button>
+            <!-- <span id="add_book" style="display:none" class="k-button k-primary btn-add-book">新增書籍</span> -->
+
 
             <div id="book_grid" style="width:80%;" class="text-center">
 
@@ -50,6 +52,65 @@
 
             </div>
 
+            <div class="uk-container align-center" id="adbk">
+                <div class="uk-card uk-text-left uk-width-1-3">
+                    <div id="insbk" class="add-window">
+                            <form id="book_form">
+                                    <ul class="fieldlist">
+                                        <li>
+                                            <img class="book-image" src="image/database.jpg" alt="">
+                                        </li>
+                                        <li>
+                                            <label class="required">圖書類別</label>
+                                            <select id="book_category" >
+                                                <option value="database">資料庫</option>
+                                                <option value="internet">網際網路</option>
+                                                <option value="system">應用系統整合</option>
+                                                <option value="home">家庭保健</option>
+                                                <option value="language">語言</option>
+                                            </select>
+                                        </li>
+                                        <li>
+                                            <label class="required">書名</label>
+                                            <input id="book_name" type="text" class="add_window k-input"/>
+                                        </li>
+                                        <li>
+                                            <label class="required">作者</label>
+                                            <input id="book_author" type="text" class="add_window k-input"/>
+                                        </li>
+                                        <li>
+                                            <label class="required">購買日期</label>
+                                            <input id="bought_datepicker"/>
+                                        </li>
+                                        <li>
+                                            <label>送達日期</label>
+                                            <input id="delivered_datepicker" />
+                                        </li>
+                                        <li>
+                                            <label class="required">金額</label>
+                                            <input id="book_price" type="text"/>
+                                        </li>
+                                        <li>
+                                            <label class="required">數量</label>
+                                            <input id="book_amount" type="text" />
+                                        </li>
+                                        <li>
+                                            <span>
+                                                總計&nbsp;<span id="book_total">0</span> 元
+                                            </span>
+                                        </li>
+                                        <li class="uk-text-right">
+                                            <button type="button" class="k-button k-primary btn-add-book" id="save_book">新增</button>
+                                        </li>
+                                    </ul>
+                                </form>
+                    </div>
+                </div>
+
+             
+                    
+        
+            
 
 
         </main>

@@ -22,10 +22,22 @@ $(function () {
     loadBookData();
 });
 var inputbookname;
+var addwindow = $("#insbk");
+
 $(document).ready(function () {
 
-
-
+    addwindow.kendoWindow({
+       
+        width:"600",
+        title:"新增書籍",
+        actions: [
+            "Minimize",
+            "Maximize",
+            "Close"
+        ],
+        close: onClose
+    }).data("kendoWindow").center().close();
+    
     // $("#res").kendoButton(); /*測試功能*/
     // $("#Disable").kendoButton(); /*測試功能*/
     // $("#Enable").kendoButton(); /*測試功能*/
@@ -135,8 +147,21 @@ $(document).ready(function () {
         $("#h1_text").text(inputbookname);
         alert(inputbookname);
     });
-
+    
+    
+    
+    
 });
+
+    function onClose(){
+        $("#add_book").fadeIn();
+    }
+
+    /* 新增書籍Button*/
+    $("#add_book").click(function(){
+        addwindow.data("kendoWindow").open();
+        $("#add_book").fadeOut();
+    });
 
 
 
@@ -158,7 +183,7 @@ $(document).ready(function () {
 //     $("#Disable").data("kendoButton").enable(true);
 // });
 
-$(".demo-input").on("input", function () { $("#h1_text").text($(this).val()); });
+//$(".demo-input").on("input", function () { $("#h1_text").text($(this).val()); });
 
 // var aler = function(){ /*設變數以開啟函數*/
 // alert("123");
