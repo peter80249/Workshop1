@@ -25,6 +25,14 @@ var inputbookname;
 var addwindow = $("#insbk");
 
 $(document).ready(function () {
+    $("#book_category").kendoDropDownList();
+    $("#bought_datepicker").kendoDatePicker();
+    $("#delivered_datepicker").kendoDatePicker();
+    $("#book_price").kendoNumericTextBox();
+    $("#book_amount").kendoNumericTextBox();
+
+
+
 
     addwindow.kendoWindow({
        
@@ -110,7 +118,7 @@ $(document).ready(function () {
                 field: "BookDeliveredDate",
                 title: "送達<br>狀態",
                 width: 15,
-
+               
             },
             {
                 field: "BookPrice",
@@ -139,7 +147,9 @@ $(document).ready(function () {
             confirmation: function (e) {
                 return "確定刪除「" + e.BookName + "」嗎?";
             }
-        }
+        },
+        //dataBound: OndataBound
+
     });
 
     $("#slcbook").on("input", function () { /* 取得輸入資料*/
@@ -147,21 +157,39 @@ $(document).ready(function () {
         $("#h1_text").text(inputbookname);
         alert(inputbookname);
     });
-    
-    
-    
-    
+     
 });
 
-    function onClose(){
-        $("#add_book").fadeIn();
-    }
+// function OndataBound(e) {
+//     var grid = $('#book_grid').data('kendoGrid');
 
-    /* 新增書籍Button*/
-    $("#add_book").click(function(){
-        addwindow.data("kendoWindow").open();
-        $("#add_book").fadeOut();
-    });
+//     grid.tbody.find('>tr').each(function () {
+//         var dataItem = grid.dataItem(this);   
+            
+//             $(this).find('>td').each(function(){
+//               if(this.innerText==' '){
+//                   $(this).addClass('fas fa-wheelchair');
+//                     alert(this.innerText);}
+//               else (this.innerText=='')
+//                   $(this).addClass('');
+//             });               
+
+//     })
+// }
+
+
+
+function onClose(){
+    $("#add_book").fadeIn();
+    // $("#add_book").enable(true);
+}
+
+/* 新增書籍Button*/
+$("#add_book").click(function(){
+    addwindow.data("kendoWindow").open();
+    $("#add_b；ook").fadeOut();
+    // $("#add_book").enable(false);
+});
 
 
 
