@@ -49,19 +49,21 @@ $(document).ready(function () {
     // $("#res").kendoButton(); /*測試功能*/
     // $("#Disable").kendoButton(); /*測試功能*/
     // $("#Enable").kendoButton(); /*測試功能*/
-
+    
     $("#book_grid").kendoGrid({
 
         toolbar: kendo.template($("#template").html()),
-
+        
         dataSource:
         {
             data: bookDataFromLocalStorage,
+            
         },
+        
+        
 
         height: 600,
         sortable: true,/*允許排序*/
-
         pageable: {
             input: true,
             numeric: false,/*跳轉頁面按鈕*/
@@ -149,15 +151,36 @@ $(document).ready(function () {
             }
         },
         //dataBound: OndataBound
-
+        
     });
 
-    $("#slcbook").on("input", function () { /* 取得輸入資料*/
-        inputbookname = $(this).val();
-        $("#h1_text").text(inputbookname);
-        alert(inputbookname);
-    });
-     
+    $("#slcbook").keyup(function () {
+        var val = $('#slcbook').val();
+        //alert(val);
+        $("#book_grid").data("kendoGrid").dataSource.filter({
+            logic:"or",
+            filter:[
+                {
+                    field:"BookName",
+                    operator:"contains",
+                    value: val
+                },
+                {
+                    field:"BookAuthor",
+                    operator:"contains",
+                    value: val
+                }
+            ]
+        });
+        
+    })
+    // $("#slcbook").on("input", function () { /* 取得輸入資料*/
+    //     inputbookname = $(this).val();
+    //     $("#h1_text").text(inputbookname);
+    //     alert(inputbookname);
+    // });
+
+    
 });
 
 // function OndataBound(e) {
@@ -214,7 +237,11 @@ $("#add_book").click(function(){
 //$(".demo-input").on("input", function () { $("#h1_text").text($(this).val()); });
 
 // var aler = function(){ /*設變數以開啟函數*/
-// alert("123");
+    
+
+
+
+
 // };
 
 
