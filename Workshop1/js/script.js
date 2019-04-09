@@ -56,12 +56,12 @@ $(document).ready(function () {
         
         dataSource:
         {
-            data: bookDataFromLocalStorage,
             
+            data: bookDataFromLocalStorage
+            
+    
         },
         
-        
-
         height: 600,
         sortable: true,/*允許排序*/
         pageable: {
@@ -154,26 +154,26 @@ $(document).ready(function () {
         
     });
 
-    $("#slcbook").keyup(function () {
+    $("#slcbook").keyup(function () { /*查詢 */
         var val = $('#slcbook').val();
-        //alert(val);
         $("#book_grid").data("kendoGrid").dataSource.filter({
-            logic:"or",
-            filter:[
+            logic  : "or",
+            filters: [
                 {
-                    field:"BookName",
-                    operator:"contains",
-                    value: val
+                    field   : "BookName",
+                    operator: "contains",
+                    value   : val
                 },
                 {
-                    field:"BookAuthor",
-                    operator:"contains",
-                    value: val
+                    field   : "BookAuthor",
+                    operator: "contains",
+                    value   : val
                 }
             ]
         });
-        
-    })
+    });
+
+
     // $("#slcbook").on("input", function () { /* 取得輸入資料*/
     //     inputbookname = $(this).val();
     //     $("#h1_text").text(inputbookname);
@@ -181,7 +181,7 @@ $(document).ready(function () {
     // });
 
     
-});
+    });
 
 // function OndataBound(e) {
 //     var grid = $('#book_grid').data('kendoGrid');
@@ -205,7 +205,7 @@ $(document).ready(function () {
 function onClose(){
     $("#add_book").fadeIn();
     // $("#add_book").enable(true);
-}
+};
 
 /* 新增書籍Button*/
 $("#add_book").click(function(){
