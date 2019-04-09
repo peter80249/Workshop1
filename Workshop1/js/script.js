@@ -21,6 +21,8 @@ function loadBookData() {
 $(function () {
     loadBookData();
 });
+
+
 var inputbookname;
 var addwindow = $("#insbk");
 
@@ -31,10 +33,7 @@ $(document).ready(function () {
     $("#book_price").kendoNumericTextBox();
     $("#book_amount").kendoNumericTextBox();
 
-
-
-
-    addwindow.kendoWindow({
+    addwindow.kendoWindow({ /*開啟新增書籍視窗 */
        
         width:"600",
         title:"新增書籍",
@@ -55,11 +54,8 @@ $(document).ready(function () {
         toolbar: kendo.template($("#template").html()),
         
         dataSource:
-        {
-            
+        {        
             data: bookDataFromLocalStorage
-            
-    
         },
         
         height: 600,
@@ -154,7 +150,7 @@ $(document).ready(function () {
         
     });
 
-    $("#slcbook").keyup(function () { /*查詢 */
+    $("#slcbook").keyup(function () {   /*連動式查詢 */
         var val = $('#slcbook').val();
         $("#book_grid").data("kendoGrid").dataSource.filter({
             logic  : "or",
